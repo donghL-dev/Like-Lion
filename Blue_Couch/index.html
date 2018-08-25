@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <link rel="manifest" href="./manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="app.js" ></script>
+    <link rel="stylesheet" href="css/page1.css">
+    <link rel="stylesheet" href="css/all.css">
+    <script src="js/page1.js"></script>
+    <title></title>
+      <!-- Add to home screen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Weather PWA">
+    <link rel="apple-touch-icon" href="img/icons/icon-144x144.png">
+
+    <meta name="msapplication-TileImage" content="img/icons/icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#0d5176">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115161414-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-115161414-4');
+    </script>
+</head>
+
+<body class=centerflex>
+    <div class=fixedsizefortablet>
+        <div class=menuflex>
+            <img class="menu-bar" src="img/bluecouch.png" style="width:25%"/>
+            <a href="page2.html"><img class="menu-bar" src="img/menu-bar.png" /></a>
+        </div>
+        <div id="content">
+            <h1 id=main>지금 기분이 어떠신가요? 선택해 주세요.</h1>
+            <div id="moodall">
+                <div id="mood1" class="item"></div>
+                <div id="mood2" class="item"></div>
+                <div id="mood3" class="item"></div>
+                <div id="mood4" class="item"></div>
+                <div id="mood5" class="item"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

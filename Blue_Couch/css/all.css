@@ -1,0 +1,251 @@
+/*~767: 반응형으로*/
+/*768~: width:768 height: 1024 크기로 고정시키기*/
+* {
+    padding: 0px;
+    margin: 0px;
+}
+.color {
+    height: 15px;
+    width: 15px;
+    color: rgb(143, 196, 241);
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.menuflex {
+        display: flex; 
+        justify-content: space-between;
+        padding-left: 10px;
+        padding-right: 10px;
+}
+.menu-bar {
+        width:70px;
+        height:70px;
+        padding: 2%; 
+}
+
+.date {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin: 5%;
+}           
+.circle {
+    height: 14vw;
+    width: 14vw;
+    background-color: rgb(117, 212, 243);
+    color: rgb(143, 196, 241);
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+#backarrow {
+    height: 10vw;
+    width: 10vw;
+    margin: 5%;
+}
+
+.recordflex {
+    display: flex;
+    justify-content: center;
+                        
+}
+.signupflex{
+    border-style: hidden;
+    width: 80%;
+    /*border: 1px solid #c3c3c3;*/
+    display: -webkit-flex; /* Safari */
+    -webkit-flex-wrap: wrap; /* Safari 6.1+ */
+    display: flex;
+    -webkit-align-items: center;
+    flex-wrap: wrap;
+
+}
+.signflex{
+    /*border-style: hidden;*/
+    width:100%;
+    display: flex;
+    justify-content: center;
+}
+
+#textfield{
+    padding: 10px;
+}
+.textareaflex {
+    display: flex;
+    justify-content: center;
+}
+
+
+@font-face {
+	font-family: batang;
+	src:url(../font/batang.woff);
+    font-weight: normal;
+}
+
+.buttonfont {
+    color: skyblue;
+    font-size: 1.2em;
+    font-family:'batang';
+    font-weight: normal;
+}
+
+.blankbutton{
+    flex-grow: 1;
+}
+
+.button {
+    font-size: 1.2em;
+    font-family:'batang';
+    font-weight: normal;
+    color: skyblue;
+    border-style: none;
+    margin: 10px;
+    background-color: white;
+}
+
+p {
+ font-family:'batang';
+}
+
+.arrowsave {
+    display: flex;
+    justify-content: space-between;
+}
+
+.font{
+ font-family: 'batang'; 
+ font-size: 1.3em;
+}
+
+.explanationfont{
+    font-size:0.8em;
+    font-family: 'batang';
+}
+
+/*tablet 크기*/
+@media screen and (min-width: 768px) {
+.menuflex {
+        display: flex; 
+        justify-content: space-between;
+        width: 768px;
+}
+
+.menu-bar {
+    /*0819 메뉴바 크기 수정-너무 커져서*/
+        /*width:14vw;*/
+        /*height:14vw;*/
+        width:81.6px;
+        height:81.6px;
+        margin: auto 0; 
+}
+
+.fixedsizefortablet{
+    width: 768px;
+    height: 1024px;
+}
+
+.date {
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    margin: 5%;
+}           
+.circle {
+    height: 94px;
+    width: 94px;
+    background-color: rgb(117, 212, 243);
+    color: rgb(143, 196, 241);
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+#backarrow {
+    height: 70px;
+    width: 70px;
+    margin: 5%;
+}
+
+.recordflex {
+    display: flex;
+    justify-content: center;
+                        
+}
+
+.textareaflex {
+    display: flex;
+    justify-content: center;
+}
+
+
+@font-face {
+	font-family: batang;
+	src:url(../font/batang.woff);
+    font-weight: normal;
+}
+
+.buttonfont {
+    color: skyblue;
+    font-size: 19px;
+    font-family:'batang';
+    font-weight: normal;
+}
+
+.blankbutton{
+    flex-grow: 1;
+}
+    
+.button {
+    font-size: 1.2em;
+    font-family:'batang';
+    font-weight: normal;
+    color: skyblue;
+    border-style: none;
+    margin: 10px;
+    background-color: white;
+
+}
+
+p {
+ font-family:'batang';
+}
+
+.arrowsave {
+    display: flex;
+    justify-content: space-between;
+}
+
+.signupflex{
+    border-style: hidden;
+    width: 70%;
+    /*border: 1px solid #c3c3c3;*/
+    display: -webkit-flex; /* Safari */
+    -webkit-flex-wrap: wrap; /* Safari 6.1+ */
+    display: flex;
+    -webkit-align-items: center;
+    flex-wrap: wrap;
+
+}
+.signflex{
+    /*border-style: hidden;*/
+    width:100%;
+    display: flex;
+    justify-content: center;
+}
+
+#textfield{
+    padding: 10px;
+}
+
+.centerflex{
+    display: flex;
+    justify-content:center;
+}
+
+}

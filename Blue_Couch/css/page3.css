@@ -1,0 +1,82 @@
+
+.textareaflex {
+    display: flex;
+    justify-content: center;
+}
+
+textarea {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border-color:lightgrey;
+    width: 80%;
+}
+
+textarea::placeholder {
+  color: grey;  
+  font-style: italic;
+  font-size: 20px;
+}
+
+.button {
+    color: skyblue;
+    font-size: 1.875em;
+    margin: 2% 8%;
+    font-family:'batang';
+    border-style: none;
+    background-color: white;
+}
+
+
+@font-face {
+	font-family: batang;
+	src:url(../font/batang.woff);
+    font-weight: normal;
+}
+
+#fixedfooter {
+    position:absolute;
+    bottom:0;
+}
+
+/*tablet 크기*/
+@media screen and (min-width: 768px) {
+.textareaflex {
+    display: flex;
+    justify-content: center;
+}
+
+textarea {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border-color:lightgrey;
+    width: 80%;
+}
+
+textarea::placeholder {
+  color: grey;  
+  font-style: italic;
+  font-size: 20px;
+}
+
+.button {
+    color: skyblue;
+    font-size: 30px;
+    margin: 2% 8%;
+    font-family:'batang';
+    background-color: white;
+}
+
+
+@font-face {
+	font-family: batang;
+	src:url(../font/batang.woff);
+    font-weight: normal;
+}
+
+#fixedfooter {
+    position:absolute;
+    bottom:0;
+}
+}

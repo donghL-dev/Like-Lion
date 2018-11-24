@@ -1,8 +1,8 @@
 .graphtable {
     display: flex;
-    /*justify-content: center;*/
+    justify-content: center;
     flex-direction: column;
-    /*align-items: center;*/
+    align-items: center;
 }
 
 .verticalLine {
@@ -20,6 +20,10 @@
     margin-bottom: 30px;
     width: 90vw;
     
+}
+audio {
+    width: 100%;
+    background-color: violet;
 }
 
 table.shorttable {

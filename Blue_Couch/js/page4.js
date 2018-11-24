@@ -13,8 +13,6 @@ var $prev, $next;
 //how many per page?
 var page = 5;
 
-var i = [];
-
 document.addEventListener('DOMContentLoaded', init, false);
 
 function init() {
@@ -28,14 +26,14 @@ function init() {
 
 	dbSetup().then(function() {
 		console.log('db is setup');
-		
+
 		countData().then(function(result) {
 			totaltext = result;
 			displayData();
 		});
 
 	}).catch(function(e) {
-		console.log('I had an issue making the db: '+e);	
+		console.log('I had an issue making the db: '+e);
 	});
 }
 
@@ -60,13 +58,12 @@ function dbSetup() {
 		};
 
 	});
-
 }
 
 function countData() {
 
 	return new Promise(function(resolve, reject) {
-		
+
 		db.transaction(['MemoTextField'],'readonly').objectStore('MemoTextField').count().onsuccess = function(e) {
 			resolve(e.target.result);
 		};
@@ -78,23 +75,33 @@ function countData() {
 
 function displayData() {
 
-	getData(position,page).then(function(cats) {
+	getData(position,page).then(function(datas) {
 		var s = '';
-		console.log(cats)
-		cats.forEach(function(cat) {
-			i += cat.textNo;
-			s += `
-			<tr onclick=tr(${cat.textNo})>
-				<td>${cat.Date.getFullYear()}-${(((cat.Date.getMonth()+1) < 10) ? '0' + (cat.Date.getMonth()+1) : (cat.Date.getMonth()+1))}-${((cat.Date.getDate() < 10) ? '0' + cat.Date.getDate() : cat.Date.getDate())} ${((cat.Date.getHours() < 10) ? '0' + cat.Date.getHours() : cat.Date.getHours())}:${((cat.Date.getMinutes() < 10) ? '0' + cat.Date.getMinutes() : cat.Date.getMinutes())}</td>
-				<td><span class="color" id="color${cat.textNo}"><style> #color${cat.textNo} { background-color: ${cat.Color} }</style></span></td>
-				<td class="td" id=${cat.textNo}>${cat.Content}</td>
-				<td>"녹음"</td>
-			</tr>`;
-		});
-
+		var audioUrl;
+		for(let i = datas.length-1; i > -1; i--) {
+			color = datas[i].Color;
+			if(datas[i].Audio != undefined) {
+				audioUrl= URL.createObjectURL(datas[i].Audio);
+				s += `
+				<tr>
+					<td class="header_font"><p class="mdl-navigation__link mdl-typography--text-uppercase">${datas[i].Date.getFullYear()}-${(((datas[i].Date.getMonth()+1) < 10) ? '0' + (datas[i].Date.getMonth()+1) : (datas[i].Date.getMonth()+1))}-${((datas[i].Date.getDate() < 10) ? '0' + datas[i].Date.getDate() : datas[i].Date.getDate())} ${((datas[i].Date.getHours() < 10) ? '0' + datas[i].Date.getHours() : datas[i].Date.getHours())}:${((datas[i].Date.getMinutes() < 10) ? '0' + datas[i].Date.getMinutes() : datas[i].Date.getMinutes())}</p></td>
+					<td><span class="color" id="color${datas[i].textNo}"><style> #color${datas[i].textNo} { background-color: ${color} }</style></span></td>
+					<td><audio src="${audioUrl}" controls 	type="audio/mpeg"></td>
+					<td class="td" style="color: #757575; font-weight: 700;" onclick=tr(${datas[i].textNo}) id=${datas[i].textNo}><p class="mdl-navigation__link mdl-typography--text-uppercase">${datas[i].Content}</p></td>
+				</tr>`;
+			}
+			else {
+				s += `
+				<tr>
+					<td class="header_font">${datas[i].Date.getFullYear()}-${(((datas[i].Date.getMonth()+1) < 10) ? '0' + (datas[i].Date.getMonth()+1) : (datas[i].Date.getMonth()+1))}-${((datas[i].Date.getDate() < 10) ? '0' + datas[i].Date.getDate() : datas[i].Date.getDate())} ${((datas[i].Date.getHours() < 10) ? '0' + datas[i].Date.getHours() : datas[i].Date.getHours())}:${((datas[i].Date.getMinutes() < 10) ? '0' + datas[i].Date.getMinutes() : datas[i].Date.getMinutes())}</td>
+					<td><span class="color" id="color${datas[i].textNo}"><style> #color${datas[i].textNo} { background-color: ${color} }</style></span></td>
+					<td></td>
+					<td class="td" style="color: #757575; font-weight: 700;" onclick=tr(${datas[i].textNo}) id=${datas[i].textNo}>${datas[i].Content}</td>
+				</tr>`;
+			}
+		}
 		document.getElementById('tbody').innerHTML = s;
 
-		console.log('got cats');
 		if(position > 0) {
 			console.log('enable back');
 			$prev.removeAttribute('disabled');
@@ -132,7 +139,7 @@ function getData(start,total) {
 		var t = db.transaction(['MemoTextField'],'readonly');
 		var catos = t.objectStore('MemoTextField');
 		var cats = [];
-
+		
 		console.log('start='+start+' total='+total);
 		var hasSkipped = false;
 		catos.openCursor().onsuccess = function(e) {
@@ -160,5 +167,3 @@ function getData(start,total) {
 	});
 
 }
-
-
